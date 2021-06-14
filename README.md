@@ -1,2 +1,1 @@
-# CICD-pipeline
-CICD pipeline
+a fully automated CICD pipeline deployment
