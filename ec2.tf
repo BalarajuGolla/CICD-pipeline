@@ -12,7 +12,7 @@ resource "aws_instance" "tfvm" {
     }
 }
 resource "aws_security_group" "websg" {
-  name = "web-sg01"
+  name = "demo-web-sg01"
   ingress {
     protocol = "tcp"
     from_port = 8080
