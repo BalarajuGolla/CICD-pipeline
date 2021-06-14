@@ -1,25 +1,20 @@
-resource "aws_instance" "tfvm" {
-  ami = "ami-06a0b4e3b7eb7a300"
-  instance_type = "t2.micro"
-  vpc_security_group_ids = [ aws_security_group.websg.id ]
+resource "aws_instance" "good-morning" {
+  ami               = "ami-5b673c34"
+  instance_type     = "t2.micro"
+  availability_zone = "ap-south-1a"
+  security_groups   = ["${aws_security_group.morning-ssh-http.name}"]
+  key_name = "zoomkey"
   user_data = <<-EOF
-                #!/bin/bash
-                echo " Hello Balaraju - I Love Terraform" > index.html
-                nohup busybox httpd -f -p 8080 &
-                EOF
-    tags = {
-      Name = "WEB-demo"
-    }
-}
-resource "aws_security_group" "websg" {
-  name = "demo-web-sg01"
-  ingress {
-    protocol = "tcp"
-    from_port = 8080
-    to_port = 8080
-    cidr_blocks = [ "0.0.0.0/0" ]
+                #! /bin/bash
+                sudo yum install httpd -y
+                sudo systemctl start httpd
+                sudo systemctl enable httpd
+                echo "<h1>Sample Webserver Network Nuts" | sudo tee  /var/www/html/index.html
+  EOF
+
+
+  tags = {
+        Name = "webserver"
   }
-}
-output "instance_ips" {
-  value = aws_instance.tfvm.public_ip
+
 }
