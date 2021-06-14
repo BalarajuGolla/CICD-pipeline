@@ -1,3 +1,2 @@
 a fully automated CICD pipeline deployment from balaraju golla
-Jenkings 
-Terraform
+second attempt hellow balaraju golla
