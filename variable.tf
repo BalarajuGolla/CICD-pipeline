@@ -5,5 +5,5 @@ variable "secret_key" {
   default = "hj7bdgmdy95qSsyI/tkSfbl3pzQattw+rzR7G13u"
   }
 variable "region" {
-  default = "us-east-1"
+  default = "ap-south-1"
   }
