@@ -1,5 +1,5 @@
-resource "aws_security_group" "Balaraju Golla-Monitoring" {
-  name        = "Balaraju Golla-Monitoring"
+resource "aws_security_group" "Balaraju" {
+  name        = "Balaraju"
   description = "allow ssh and http traffic"
 
   ingress {
