@@ -4,7 +4,7 @@ resource "aws_instance" "tfvm" {
   vpc_security_group_ids = [ aws_security_group.websg.id ]
   user_data = <<-EOF
                 #!/bin/bash
-                echo "I LOVE TERRAFORM" > index.html
+                echo " Hello Balaraju - I Love Terraform" > index.html
                 nohup busybox httpd -f -p 8080 &
                 EOF
     tags = {
